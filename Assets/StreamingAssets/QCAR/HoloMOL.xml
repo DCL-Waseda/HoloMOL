@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="fig1" size="100.000000 100.094162" />
     <ImageTarget name="Marker-00" size="100.000000 100.000000" />
     <ImageTarget name="bitmask_trackable_colored_contrasted" size="100.000000 100.000000" />
     <ImageTarget name="GrassTexture_zpsf981f07d" size="100.000000 75.000000" />
