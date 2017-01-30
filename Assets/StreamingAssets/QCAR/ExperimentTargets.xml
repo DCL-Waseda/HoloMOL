@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="mstlrt" size="0.400000 0.265934" />
+    <ImageTarget name="Tarmac" size="5.000000 3.500000" />
+    <ImageTarget name="Stones" size="5.000000 3.500000" />
+    <ImageTarget name="Sand" size="5.000000 3.766667" />
+    <ImageTarget name="Sakura" size="5.000000 3.750000" />
+    <ImageTarget name="Grass" size="5.000000 3.750000" />
+    <ImageTarget name="Leaves" size="5.000000 3.750000" />
+    <ImageTarget name="Chips" size="5.000000 3.500000" />
+  </Tracking>
+</QCARConfig>
