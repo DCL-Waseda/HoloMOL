@@ -14,6 +14,8 @@ namespace Vuforia
     public class DefaultTrackableEventHandler : MonoBehaviour,
                                                 ITrackableEventHandler
     {
+        public int TargetId;
+
         #region PRIVATE_MEMBER_VARIABLES
  
         private TrackableBehaviour mTrackableBehaviour;
@@ -71,6 +73,7 @@ namespace Vuforia
             Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
             Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
             var canvasComponents = GetComponentsInChildren<Canvas>(true);
+            ImageTargetManager.ActiveTarget = TargetId;
 
             // Enable rendering:
             foreach (Renderer component in rendererComponents)
