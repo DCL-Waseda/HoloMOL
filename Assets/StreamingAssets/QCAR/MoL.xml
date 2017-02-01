@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="peyangu" size="100.000000 133.743835" />
+    <ImageTarget name="BEAK" size="100.000000 60.833332" />
+    <ImageTarget name="minions" size="100.000000 115.789474" />
+    <ImageTarget name="your_name" size="100.000000 132.978729" />
+  </Tracking>
+</QCARConfig>
