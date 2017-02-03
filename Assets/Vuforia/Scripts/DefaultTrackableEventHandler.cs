@@ -15,6 +15,7 @@ namespace Vuforia
                                                 ITrackableEventHandler
     {
         public int TargetId;
+        public AudioSource Source = null;
 
         #region PRIVATE_MEMBER_VARIABLES
  
@@ -90,6 +91,10 @@ namespace Vuforia
             foreach (var component in canvasComponents)
             {
                 component.enabled = true;
+            }
+            if (Source != null)
+            {
+                Source.Play();
             }
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
         }
