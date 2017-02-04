@@ -92,7 +92,7 @@ namespace Vuforia
             {
                 component.enabled = true;
             }
-            if (Source != null)
+            if (Source != null && !Source.isPlaying)
             {
                 Source.Play();
             }
