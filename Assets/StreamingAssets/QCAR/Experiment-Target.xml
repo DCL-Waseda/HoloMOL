@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="jari" size="100.000000 75.000000" />
+    <ImageTarget name="tanpopo" size="100.000000 70.774353" />
+    <ImageTarget name="kouyou" size="100.000000 66.654976" />
+    <ImageTarget name="sakura" size="100.000000 75.000000" />
+    <ImageTarget name="ine" size="100.000000 75.000000" />
+    <ImageTarget name="gyogun" size="100.000000 62.500000" />
+    <ImageTarget name="lego" size="100.000000 66.916664" />
+    <ImageTarget name="tyurippu" size="100.000000 66.233765" />
+    <ImageTarget name="sango" size="100.000000 56.311031" />
+    <ImageTarget name="ganseki" size="100.000000 75.000000" />
+  </Tracking>
+</QCARConfig>
