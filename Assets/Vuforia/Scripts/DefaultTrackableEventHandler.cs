@@ -100,7 +100,7 @@ namespace Vuforia
             }
 
             // ３秒後に削除する
-            StartCoroutine(DelayMethod(3f, () =>
+            StartCoroutine(DelayMethod(10f, () =>
                     {
                         Debug.Log("Delay call");
                         OnTrackingLost();
