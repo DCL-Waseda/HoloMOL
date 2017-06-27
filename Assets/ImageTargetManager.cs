@@ -13,9 +13,9 @@ public class ImageTargetManager : MonoBehaviour
 
     void Start()
     {
-        for (var i=0; i<imageTargets.Length; i++)
+        for (var i = 0; i < imageTargets.Length; i++)
         {
-            imageTargets[i].TargetId = i;
+            //imageTargets[i].TargetId = i;
         }
     }
 
@@ -30,11 +30,11 @@ public class ImageTargetManager : MonoBehaviour
 
     private void RemoveOtherTarget(int id)
     {
-        for (var i=0; i<imageTargets.Length; i++)
+        for (var i = 0; i < imageTargets.Length; i++)
         {
             if (i != id)
             {
-                imageTargets[i].OnTrackableStateChanged(TrackableBehaviour.Status.NOT_FOUND,TrackableBehaviour.Status.NOT_FOUND);
+                imageTargets[i].OnTrackableStateChanged(TrackableBehaviour.Status.NOT_FOUND, TrackableBehaviour.Status.NOT_FOUND);
             }
         }
     }

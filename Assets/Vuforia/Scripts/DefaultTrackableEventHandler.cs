@@ -5,8 +5,6 @@ Confidential and Proprietary - Protected under copyright and other laws.
 ==============================================================================*/
 
 using UnityEngine;
-using System.Collections;
-using System;
 
 namespace Vuforia
 {
@@ -16,19 +14,16 @@ namespace Vuforia
     public class DefaultTrackableEventHandler : MonoBehaviour,
                                                 ITrackableEventHandler
     {
-        public int TargetId;
-        public AudioSource Source = null;
-
         #region PRIVATE_MEMBER_VARIABLES
-
+ 
         private TrackableBehaviour mTrackableBehaviour;
-
+    
         #endregion // PRIVATE_MEMBER_VARIABLES
 
 
 
         #region UNTIY_MONOBEHAVIOUR_METHODS
-
+    
         void Start()
         {
             mTrackableBehaviour = GetComponent<TrackableBehaviour>();
@@ -49,8 +44,8 @@ namespace Vuforia
         /// tracking state changes.
         /// </summary>
         public void OnTrackableStateChanged(
-            TrackableBehaviour.Status previousStatus,
-            TrackableBehaviour.Status newStatus)
+                                        TrackableBehaviour.Status previousStatus,
+                                        TrackableBehaviour.Status newStatus)
         {
             if (newStatus == TrackableBehaviour.Status.DETECTED ||
                 newStatus == TrackableBehaviour.Status.TRACKED ||
@@ -75,8 +70,6 @@ namespace Vuforia
         {
             Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
             Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
-            var canvasComponents = GetComponentsInChildren<Canvas>(true);
-            ImageTargetManager.ActiveTarget = TargetId;
 
             // Enable rendering:
             foreach (Renderer component in rendererComponents)
@@ -89,22 +82,7 @@ namespace Vuforia
             {
                 component.enabled = true;
             }
-            // Enable canvas:
-            foreach (var component in canvasComponents)
-            {
-                component.enabled = true;
-            }
-            if (Source != null && !Source.isPlaying)
-            {
-                Source.Play();
-            }
 
-            // ３秒後に削除する
-            StartCoroutine(DelayMethod(10f, () =>
-                    {
-                        Debug.Log("Delay call");
-                        OnTrackingLost();
-                    }));
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
         }
 
@@ -113,7 +91,6 @@ namespace Vuforia
         {
             Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
             Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
-            var canvasComponents = GetComponentsInChildren<Canvas>(true);
 
             // Disable rendering:
             foreach (Renderer component in rendererComponents)
@@ -126,18 +103,8 @@ namespace Vuforia
             {
                 component.enabled = false;
             }
-            // Disable canvas:
-            foreach (var component in canvasComponents)
-            {
-                component.enabled = false;
-            }
-            Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
-        }
 
-        private IEnumerator DelayMethod(float waitTime, Action action)
-        {
-            yield return new WaitForSeconds(waitTime);
-            action();
+            Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
         }
 
         #endregion // PRIVATE_METHODS
