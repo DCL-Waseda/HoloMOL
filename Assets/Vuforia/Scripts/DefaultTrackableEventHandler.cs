@@ -4,6 +4,8 @@ All Rights Reserved.
 Confidential and Proprietary - Protected under copyright and other laws.
 ==============================================================================*/
 
+using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Vuforia
@@ -15,15 +17,15 @@ namespace Vuforia
                                                 ITrackableEventHandler
     {
         #region PRIVATE_MEMBER_VARIABLES
- 
+
         private TrackableBehaviour mTrackableBehaviour;
-    
+
         #endregion // PRIVATE_MEMBER_VARIABLES
 
 
 
         #region UNTIY_MONOBEHAVIOUR_METHODS
-    
+
         void Start()
         {
             mTrackableBehaviour = GetComponent<TrackableBehaviour>();
@@ -70,6 +72,7 @@ namespace Vuforia
         {
             Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
             Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
+            var canvasComponents = GetComponentsInChildren<Canvas>(true);
 
             // Enable rendering:
             foreach (Renderer component in rendererComponents)
@@ -82,6 +85,17 @@ namespace Vuforia
             {
                 component.enabled = true;
             }
+            // Enable canvas:
+            foreach (var component in canvasComponents)
+            {
+                component.enabled = true;
+            }
+            // ３秒後に削除する
+            StartCoroutine(DelayMethod(3f, () =>
+                    {
+                        Debug.Log("Delay call");
+                        OnTrackingLost();
+                    }));
 
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
         }
@@ -91,6 +105,7 @@ namespace Vuforia
         {
             Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
             Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
+            var canvasComponents = GetComponentsInChildren<Canvas>(true);
 
             // Disable rendering:
             foreach (Renderer component in rendererComponents)
@@ -103,8 +118,19 @@ namespace Vuforia
             {
                 component.enabled = false;
             }
+            // Enable canvas:
+            foreach (var component in canvasComponents)
+            {
+                component.enabled = false;
+            }
 
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
+        }
+
+        private IEnumerator DelayMethod(float waitTime, Action action)
+        {
+            yield return new WaitForSeconds(waitTime);
+            action();
         }
 
         #endregion // PRIVATE_METHODS
