@@ -17,7 +17,7 @@ namespace Vuforia
                                                 ITrackableEventHandler
     {
         public int TargetId;
-        public AudioSource Source = null;
+        //public AudioSource Source = null;
 
         #region PRIVATE_MEMBER_VARIABLES
 
@@ -94,11 +94,12 @@ namespace Vuforia
             {
                 component.enabled = true;
             }
+            /*
             if (Source != null && !Source.isPlaying)
             {
                 Source.Play();
             }
-
+            
             // ３秒後に削除する
             StartCoroutine(DelayMethod(3f, () =>
                     {
@@ -106,6 +107,7 @@ namespace Vuforia
                         OnTrackingLost();
                     }));
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
+            */
         }
 
 
