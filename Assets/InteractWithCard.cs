@@ -7,6 +7,7 @@ public class InteractWithCard : MonoBehaviour
 {
     public SteamVR_Input_Sources HandType;
     public SteamVR_Action_Boolean touch;
+    public GameObject edge;
 
     private bool isGrab = false;
     private bool isCollide = false;
@@ -24,7 +25,8 @@ public class InteractWithCard : MonoBehaviour
     {
         if (isGrab)
         {
-            cardObj.transform.position = gameObject.transform.position;
+            cardObj.transform.position = edge.transform.position;
+            cardObj.transform.rotation = edge.transform.rotation;
         }
 
         if (touch.GetStateDown(HandType))
